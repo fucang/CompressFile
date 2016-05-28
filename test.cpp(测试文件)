@@ -1,0 +1,54 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <iostream>
+using namespace std;
+
+#include "HuffmanTree.hpp"
+#include "FileCompress.h"
+#include "FileCompress.cpp"
+
+#include "TimeCheck.h"
+
+
+void test()
+{
+	string filename = "C:\\Users\\朱潇翔\\Desktop\\input.txt";
+	cout << "压缩时间";
+	MyTimer timer;
+	timer.Start();
+	////////////////////////////////
+
+	FileCompress fc;
+	fc.CompressHuffCode(filename.c_str());
+
+	/////////////////////////////////
+	timer.Stop();
+	timer.showTime();
+
+}
+
+void untest()
+{
+	string filename = "C:\\Users\\朱潇翔\\Desktop\\input.huff";
+	cout << "解压时间";
+	MyTimer timer;
+	timer.Start();
+	////////////////////////////////
+
+	FileCompress unfc;
+	unfc.UnCompressHuffCode(filename.c_str());
+
+	/////////////////////////////////
+	timer.Stop();
+	timer.showTime();
+	
+}
+
+int main()
+{ 
+
+	test();
+	untest();
+
+	system("pause");
+	return 0;
+}
